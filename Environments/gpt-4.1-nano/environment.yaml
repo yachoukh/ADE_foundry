@@ -33,7 +33,7 @@ parameters:
     name: Account+project mode
     description: 'new = create account and project; existing = reference an account+project that already exists in the resource group.'
     type: string
-    required: true
+    required: false
     default: new
     allowed:
       - new
