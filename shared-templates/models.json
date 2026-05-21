@@ -1,0 +1,40 @@
+{
+  "_comment": "Source of truth for per-model values baked into each catalog item's main.bicep. Cross-checked against https://foundry-models.azurewebsites.net/explorer and MS Learn 'Azure AI Foundry models' + 'Deployment types' at bake time. capacityK is in thousands of TPM.",
+  "models": {
+    "gpt-5.5": {
+      "modelName": "gpt-5.5",
+      "version": "2026-04-24",
+      "skuName": "GlobalStandard",
+      "capacityK": 30,
+      "format": "OpenAI"
+    },
+    "gpt-5.4": {
+      "modelName": "gpt-5.4",
+      "version": "2026-03-05",
+      "skuName": "GlobalStandard",
+      "capacityK": 30,
+      "format": "OpenAI"
+    },
+    "gpt-4.1": {
+      "modelName": "gpt-4.1",
+      "version": "2025-04-14",
+      "skuName": "GlobalStandard",
+      "capacityK": 30,
+      "format": "OpenAI"
+    },
+    "gpt-4.1-mini": {
+      "modelName": "gpt-4.1-mini",
+      "version": "2025-04-14",
+      "skuName": "GlobalStandard",
+      "capacityK": 30,
+      "format": "OpenAI"
+    },
+    "gpt-4.1-nano": {
+      "modelName": "gpt-4.1-nano",
+      "version": "2025-04-14",
+      "skuName": "GlobalStandard",
+      "capacityK": 30,
+      "format": "OpenAI"
+    }
+  }
+}

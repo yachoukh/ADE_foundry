@@ -1,0 +1,46 @@
+# Canonical environment.yaml template. Placeholders replaced per item:
+#   gpt-4.1   e.g. gpt-4.1-mini
+#   GlobalStandard     e.g. GlobalStandard
+#   30   e.g. 30
+name: gpt-4.1
+version: 1.0.0
+summary: Deploy gpt-4.1 on Azure AI Foundry (new or existing project).
+description: |
+  Creates (or extends) an Azure AI Foundry account and project, and adds a
+  model deployment for gpt-4.1. SKU is locked to GlobalStandard and
+  capacity to 30K TPM by this catalog. The user only picks the
+  account name, project name, deployment name, and whether to create new
+  resources or attach to existing ones.
+runner: ARM
+templatePath: main.bicep
+parameters:
+  - id: foundryName
+    name: Foundry account name (prefix in new mode)
+    description: In 'new' mode this is used as a prefix; the actual account name is suffixed with a hash for global subdomain uniqueness. In 'existing' mode it must match an existing account in the resource group.
+    type: string
+    required: true
+  - id: projectName
+    name: Foundry project name
+    description: Project under the Foundry account.
+    type: string
+    required: true
+  - id: deploymentName
+    name: Model deployment name
+    description: Name of the gpt-4.1 deployment on the Foundry account.
+    type: string
+    required: true
+  - id: mode
+    name: Account+project mode
+    description: 'new = create account and project; existing = reference an account+project that already exists in the resource group.'
+    type: string
+    required: true
+    default: new
+    allowed:
+      - new
+      - existing
+  - id: principalId
+    name: Principal id for Azure AI User role (new mode)
+    description: Object id of the user or service principal that should receive the Azure AI User role on the new account. Required in 'new' mode; ignored in 'existing' mode. ADE supplies the requesting user's object id here via the project environment type.
+    type: string
+    required: false
+    default: ''
