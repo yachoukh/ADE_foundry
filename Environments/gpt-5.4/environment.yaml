@@ -44,3 +44,9 @@ parameters:
     type: string
     required: false
     default: ''
+  - id: existingResourceGroup
+    name: Existing account resource group (existing mode)
+    description: In 'existing' mode, the resource group that contains the existing Foundry account. Required when the existing account lives in a different RG than the ADE environment (which is the normal case, since ADE creates one RG per environment). Ignored in 'new' mode.
+    type: string
+    required: false
+    default: ''
